@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+@import "tailwindcss";
+
+@plugin "@iconify/tailwind4";
+@plugin "daisyui" {
+  themes: light --default;
+}
+
+@source "../views";
+@source "../views/**/*.blade.php";
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+@layer components {
+
+    .font-manrope {
+        font-family: "Manrope", serif;
+        font-optical-sizing: auto;
+    }
+
+    .menu-active {
+        @apply bg-indigo-500 text-white
+    }
+
+    .menu-inactive {
+        @apply hover:text-indigo-500 hover:bg-indigo-500/20
+    }
+
+    .mid-trans {
+        @apply transition-all ease-linear duration-200
+    }
+
+    /* =============== Table Class =============== */
+    .table-head {
+        @apply text-slate-400
+    }
+
+    .table-head>tr {
+        @apply !border-b !border-slate-100 bg-white/10
+    }
+
+    .table-head>tr>th {
+        @apply font-normal text-center text-sm
+    }
+
+    .table-body {
+        @apply text-sm
+    }
+
+    .table-body>tr {
+        @apply hover:bg-indigo-100/40 !border-b !border-slate-100
+    }
+
+    .table-body>tr:last-child {
+        @apply !border-none;
+    }
+
+    .table-body>tr>td {
+        @apply text-center
+    }
+
+    /* =============== ScrollNone Class =============== */
+    .no-scroll {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    .no-scroll::-webkit-scrollbar {
+        display: none;
+        width: 0px;
+        background: transparent;
+        scrollbar-width: none;
+    }
+}
